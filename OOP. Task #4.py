@@ -98,17 +98,21 @@ class Reviewer(Mentor):
 
 def calculate_student_average_grade(list_of_students, course_name):
     total_grades = 0
+    count_grades = 0
     for i in list_of_students:
         total_grades += sum(i.grades[course_name])
+        count_grades += len(i.grades[course_name])
     average = total_grades/len(list_of_students)
     return f'Cредняя оценка студентов по курсу {course_name} ' \
            f'составляет {average}'
 
 def calculate_lector_average_grade(list_of_lectors, course_name):
     total_grades = 0
+    count_grades = 0
     for i in list_of_lectors:
         total_grades += sum(i.lector_grade[course_name])
-    average = total_grades/len(list_of_lectors)
+        count_grades += len(i.lector_grade[course_name])
+    average = total_grades/count_grades
     return f'Cредняя оценка лекторов по курсу {course_name} ' \
            f'составляет {average}'
 
